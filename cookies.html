@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Data Persistence</title>
+<script>
+   
+   function setcookies()
+   {
+    document.cookie="name=" +document.myform.fname.value;
+    document.cookie="email=" +document.myform.mail.value;
+    document.cookie="language=" +document.myform.lang.value;
+   }
+ //alert(document.cookie);
+
+   function getcoookies()
+   {
+        var cookiesarray=document.cookie.split(";");
+
+        for(var i=0;i<cookiesarray.length;i++)
+        {
+
+                     var valuearray=cookiesarray[i].split("=");
+                     if(valuearray[0].trim=='fname')
+
+                     {
+
+
+                        document.myform.fname.value=valuearray[1];
+                     }
+
+        }
+        
+        
+   }
+
+</script>
+</head>
+<body>
+    <h1>Cookies</h1>
+    <form name="myform">
+        Name: <input type="text" name="fname">
+        E-mail:  <input type="email" name="mail">
+        Language: <input type="text" name="lang"><br><br>
+
+        <button onclick="setcookies()">Set Cookies</button>
+        <button onclick="getcoookies()">Get Cookies</button>
+        
+
+    </form>
+</body>
+</html>
